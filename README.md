@@ -1,8 +1,10 @@
 # ECJKSeg
 又一个基于mmseg的cjk中文分词器，首先按照Unicode text segmentation, aux #29 的国际标准分词，即首先切分英文与数字等，再在切出的中文串句子上采用MMSEG分词，词典使用搜狗分词库。
+
 Features:
 1.字典采用patricia trie, 实现采用的是https://github.com/rkapsi/patricia-trie，所以支持词典的动态增删查改，不需要重新load字典文件。
 2.采用的分词方法是基于unicode uax #29 与mmseg，uax #29的实现是JDK的java.text包。所以既支持英文等欧洲的分词，又支持中文，CJK的分词，当然你要先准备日文的词典文件。
+
 使用方法：
 	public static void main(String[] args) throws IOException{
 		ECJKSeg seg = new ECJKSeg();
