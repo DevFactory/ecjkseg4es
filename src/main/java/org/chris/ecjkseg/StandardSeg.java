@@ -1,4 +1,4 @@
-package org.chris.cnseg;
+package org.chris.ecjkseg;
 
 import java.io.IOException;
 import java.io.PushbackReader;
@@ -28,7 +28,6 @@ public class StandardSeg {
 		this.boundary = BreakIterator.getWordInstance();
 	}
 	public void setReader(Reader reader) throws IOException{
-		this.close();
         this.pr = new PushbackReader(reader,PUSHBACK_BUFFER_SIZE);
         this.readerBufferCurrentIndex=0;
         this.readerBufferNextIndex = 0;
@@ -76,10 +75,7 @@ public class StandardSeg {
 			return w;
 		}
 	}
-	public void close() throws IOException{
-		if(this.pr != null)
-			this.pr.close();
-	}
+
 	public static void main(String[] args) throws IOException{
 		String s = " w 我是中国人啊90009aaaaa啊啊啊啊  ----====】】】】";
         Reader r = new StringReader(s);

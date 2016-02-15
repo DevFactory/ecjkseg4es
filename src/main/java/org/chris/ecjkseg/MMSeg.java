@@ -1,4 +1,4 @@
-package org.chris.cnseg;
+package org.chris.ecjkseg;
 
 import java.io.IOException;
 import java.util.LinkedList;
@@ -116,8 +116,7 @@ public class MMSeg {
 	}
 	
 	public static void main(String[] args) throws IOException{       
-        String filename = "/SogouLabDic.dic";
-        Dictionary dic = new Dictionary(filename);
+        Dictionary dic = new Dictionary();
         MMSeg seg = new MMSeg(dic);
         String sen = "我是中国人";
         //

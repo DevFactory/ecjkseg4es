@@ -3,7 +3,7 @@
 
 Features:  
 1.字典采用patricia trie, 实现采用的是https://github.com/rkapsi/patricia-trie，所以支持词典的动态增删查改，不需要重新load字典文件。  
-2.采用的分词方法是基于unicode uax #29 与mmseg，uax 29的实现是JDK的java.text包。所以既支持英文等欧洲的分词，又支持中文，CJK的分词，当然你要先准备日文的词典文件。  
+2.采用的分词方法是基于unicode uax #29 与mmseg，uax 29的实现是JDK的java.text package, refer to : http://icu-project.org/docs/papers/text_boundary_analysis_in_java。所以既支持英文等欧洲的分词，又支持中文，CJK的分词，当然你要先准备日文的词典文件。  
 
 使用方法：  
 	public static void main(String[] args) throws IOException{

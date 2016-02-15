@@ -1,4 +1,4 @@
-package org.chris.cnseg;
+package org.chris.ecjkseg;
 
 import java.io.IOException;
 import java.io.Reader;
@@ -15,9 +15,14 @@ public class ECJKSeg {
 	private int whichNext = 0; //used by next()
 	
 	public ECJKSeg(){
-		dic = new Dictionary(true);
+		dic = new Dictionary();
 		mmseg = new MMSeg(dic);
 		sdseg = new StandardSeg();
+	}
+	public ECJKSeg(Dictionary dic){
+		this.dic = dic;
+		this.mmseg = new MMSeg(dic);
+		this.sdseg = new StandardSeg();
 	}
 	public void setReader(Reader reader) throws IOException{
 		this.whichNext = 0;
@@ -46,7 +51,7 @@ public class ECJKSeg {
 			w = sdseg.next();
 			if(w == null)
 				return null;
-			if(isCJKWord(w)){
+			if(w.getType() == Word.Type.CJK_WORD){
 				mmseg.setSentence(w.getText(),w.getStartOffset());
 				Word w1 = mmseg.next();
 				assert w1 != null;
@@ -64,20 +69,6 @@ public class ECJKSeg {
 		}
 	}
 	
-	public void close() throws IOException{
-		sdseg.close();
-	}
-	
-	public static boolean isCJKWord(Word w){
-		return isCJK(w.getText().charAt(0));
-	}
-	
-	public static boolean isCJK(char c){
-		return Character.UnicodeBlock.of(c) == Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS;
-	}
-	public static boolean isCJK(int c){
-		return Character.UnicodeBlock.of(c) == Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS;
-	}
 	public static class LetterFilter implements WordFilter{
 		@Override
 		public boolean accept(Word w) {
@@ -96,7 +87,6 @@ public class ECJKSeg {
 		while((w = seg.nextWord()) != null){
 			System.out.println(w);
 		}
-		seg.close();
 	}
 
 }

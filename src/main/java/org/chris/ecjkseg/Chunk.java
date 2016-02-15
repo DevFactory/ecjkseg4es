@@ -1,4 +1,4 @@
-package org.chris.cnseg;
+package org.chris.ecjkseg;
 
 import java.util.*;
 
