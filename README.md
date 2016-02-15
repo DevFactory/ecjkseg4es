@@ -40,3 +40,6 @@ text: 我的邮箱 startOffset: 40 endOffset: 43
 text: 是 startOffset: 44 endOffset: 44  
 text: 9999 startOffset: 45 endOffset: 48  
 text: gmail.com startOffset: 50 endOffset: 58  
+=======
+# ecjkseg4es
+ECJKSeg 基于mmseg，添加对最新版本的5.3.1 lucene 和 2.1.1 elastic search  分词插件的支持。
