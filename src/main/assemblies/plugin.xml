@@ -6,7 +6,7 @@
     <includeBaseDirectory>false</includeBaseDirectory>
     <fileSets>
         <fileSet>
-            <directory>${project.basedir}/config</directory>
+            <directory>${project.basedir}/src/main/config</directory>
             <outputDirectory>/config</outputDirectory>
         </fileSet>
     </fileSets>
